@@ -10,6 +10,12 @@ A super simple Begin **c**reate **r**ead **u**pdate **d**elete app that exemplif
 
 Deploy your own clone of this app to Begin!
 
+
+SSR React app for frontend using fetch() to other Lambdas. 
+get-index can hydrate the DOM with data with javascript disabled.
+client side post requests can update data 
+
+
 ## Getting started
 
 - Start the local dev server: `npm start`

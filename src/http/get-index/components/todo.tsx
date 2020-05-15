@@ -62,7 +62,7 @@ export function Todo(todos: Props) {
         //@ts-ignore
         let text = props.text || ''
         return `
-<h3 class="font-size-1 font-weight-normal">${text}</h3>
+        <h3 class="font-size-1 font-weight-normal">${text}</h3>
         `
       }
 

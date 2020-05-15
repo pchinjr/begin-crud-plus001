@@ -1,12 +1,24 @@
 import React, { Component } from "https://unpkg.com/es-react";
 
+
 type Props = {
   todos: object[];
-  t: object;
 };
 
-export function Todo(todos: Props) {
-      // Kick off the app
+export function Todo(todos: Props){
+      // fetch('http://localhost:3333/todos', {
+      //   credentials: 'same-origin',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   }
+      // })
+      // .then(res => res)
+      // .then(body => body.json())
+      // // Call update with fetched todos
+      // .then(json => update(json.todos))    
+
+
+      //Kick off the app
       init()
 
       // GET all todos
@@ -27,48 +39,23 @@ export function Todo(todos: Props) {
       //https://stackoverflow.com/a/59046041/5755373
       
       function update (todos: Props) {
+        console.log('update todos')
         //@ts-ignore
         let list = document.getElementById('js-todos')
         //@ts-ignore
-        let completed = document.getElementById('js-completed')
-        //@ts-ignore
-        let message = document.getElementById('js-message')
-        //@ts-ignore
         let current = todos.filter(t => !t.completed)
         //@ts-ignore
-        let complete = todos.filter(t => t.completed)
-        //@ts-ignore
         let doneTitle = document.getElementById('js-done-title')
-        let done = complete.length && !current.length
-        let none = !complete.length && !current.length
-
-        if (complete.length) {
-          doneTitle.classList.toggle('display-none')
-        }
-
         list && current.length
         //@ts-ignore
           ? list.innerHTML = current.map(t => Todo(t)).join('')
           : ''
-
-        completed && complete.length
-        //@ts-ignore
-          ? completed.innerHTML = complete.map(t => Todo(t)).join('')
-          : ''
       }
 
-      function Message (props: Props) {
-        props = props || {}
-        //@ts-ignore
-        let text = props.text || ''
-        return `
-        <h3 class="font-size-1 font-weight-normal">${text}</h3>
-        `
-      }
 
       function Todo (props: Props) {
         //@ts-ignore
-        let text = props.text || ''
+        let text = props.text || 'add a todeno'
         //@ts-ignore
         let id = props.key || ''
         //@ts-ignore
@@ -79,14 +66,7 @@ export function Todo(todos: Props) {
           : ''
 
         return `
-<li
-  id="${id}"
-  class="
-    display-flex
-    align-items-center
-    border-bottom
-  "
->
+<li  id="${id}">
   <form
     action="/todos"
     method="POST"
@@ -137,6 +117,5 @@ export function Todo(todos: Props) {
 </li>
         `
       }
-
-  return null
+    return update
 }

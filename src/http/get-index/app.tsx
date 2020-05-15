@@ -1,10 +1,11 @@
-import React, { Component } from "https://unpkg.com/es-react";
+import React, { Component, PropTypes } from "https://unpkg.com/es-react";
+import { Todo } from "./components/todo.tsx"
 
 // type definition for react elements
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      pre: any;
+      p: string;
     }
   }
 }
@@ -16,5 +17,5 @@ type Props = {
 //function component
 export function App(props: Props) {
      //@ts-ignore
-     return <pre> { JSON.stringify(props.data) } </pre>;
+     return <Todo data = { props.data.todos } /> ;
 }

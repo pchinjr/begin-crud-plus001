@@ -10,6 +10,18 @@ A super simple Begin **c**reate **r**ead **u**pdate **d**elete app that exemplif
 
 Deploy your own clone of this app to Begin!
 
+get-index function at / 
+ - handler fetches data { "todos": [] } and passes todos as props into render()
+render.tsx 
+ - receives todos
+ - renders App with stringified html, the body is App
+ App.tsx
+ - returns todos
+
+browser.tsx 
+ App + render are sent to the client wrapped by an event listener. Window is the global object because Deno is made to be browser capable, but TS doesn't know about it. 
+
+
 
 SSR React app for frontend using fetch() to other Lambdas. 
 get-index can hydrate the DOM with data with javascript disabled.

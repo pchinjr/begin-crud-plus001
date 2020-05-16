@@ -5,7 +5,6 @@ import { App } from './app.tsx';
 export async function render(props: object[]) {
 //https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402
   let body = ReactDOMServer.renderToString(<App data = {props} />);
-  console.log( 'render.tsx body is type of ' + typeof(body) )
   
   return `<!DOCTYPE html>
   <html lang="en">
@@ -20,13 +19,14 @@ export async function render(props: object[]) {
       <div>
         <h1> Todeno </h1>
         <form action="/todos" method="POST">
-          <input name="text" type="text" autofocus="autofocus"/>
+          <input name="text" type="text" autofocus="autofocus" placeholder="praise cage"/>
         </form>
       </div>
       <ul id="js-todos"></ul>
+      <div id=app>${body}</div>
     </div>
   
-<div id=app>${body}</div>
+
 <script type="module" src=/_static/browser.js></script>
 </body>
 </html>

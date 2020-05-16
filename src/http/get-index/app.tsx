@@ -23,15 +23,8 @@ type Props = {
 
 //function component
 export function App(props: Props) {
-  let todos = props.data
-
-  // let stringee = JSON.stringify(todos)
 
   let body = <Todo todos = { props.data }> </Todo>
-
-
   
   return body
-  //@ts-ignore
-  //return <Todo data = { props.data.todos } /> ;
 }

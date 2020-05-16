@@ -23,6 +23,24 @@ browser.tsx
 
 
 
+
+Request comes into API Gateway
+API Gateway sends an HTTP event to get-index lambda function, index.ts
+index.ts fetches todo data server side, calls render.tsx with server data as props
+render.tsx is a function that takes todos and renders App component to an html string
+App.tsx is a function that returns Todo function
+Todo is a function that takes todos and returns an updated todo component. 
+
+browser.tsx is the entry point for the js bundle that is sent client side
+initial hydration works without javascript
+
+
+handler gets invoked from get-index/index.ts
+
+
+
+
+
 SSR React app for frontend using fetch() to other Lambdas. 
 get-index can hydrate the DOM with data with javascript disabled.
 client side post requests can update data 

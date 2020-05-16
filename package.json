@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Begin basic CRUD app",
   "scripts": {
-    "build": "mkdirp dist && deno bundle src/browser.tsx > dist/browser.js",
-    "start": "npm run build && sandbox"
+    "build": "deno bundle src/browser.tsx > dist/browser.js",
+    "start": "sandbox"
   },
   "devDependencies": {
     "@architect/sandbox": "latest",

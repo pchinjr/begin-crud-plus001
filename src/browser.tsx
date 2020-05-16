@@ -3,10 +3,9 @@ import { App } from './http/get-index/app.tsx'
 
 //entry point for deno.bundle() and client-side data call.
 window.addEventListener('DOMContentLoaded', async () => {
-   const raw = await fetch('/todos')
-   const state = await raw.json()
+  const raw:Response = await fetch('/todos')
+  const props:object[] = await raw.json()
   //@ts-ignore
   let el = window.document.getElementById('app')
-  //@ts-ignore
-  ReactDOM.hydrate( <App data={ state } />, el)
+  ReactDOM.hydrate( <App data={ props } />, el)
 })

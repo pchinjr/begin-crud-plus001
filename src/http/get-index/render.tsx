@@ -3,28 +3,29 @@ import { React } from "https://unpkg.com/es-react";
 import { App } from './app.tsx';
 
 export async function render(props: object[]) {
-  let body = ReactDOMServer.renderToString(<App data = {props} />);
+//https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402
+  let body = ReactDOMServer.renderToString( <App data={ props }/> );
+  console.log('render.tsx hit ')
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Todos Never Die</title>
+    <title>Todenow or Never</title>
   </head>
-<body>
-  <div>
+  <style> * { margin-left: 5px } </style>
+  <body>
     <div>
-      <h1> Todeno </h1>
-      <form action="/todos" method="POST">
-        <input name="text" type="text" autofocus="autofocus"/>
-      </form>
-    </div>
-    <ul id="js-todos"></ul>
-  </div>
-  
-<div id=app>${body}</div>
-<script type="module" src=/_static/browser.js></script>
-</body>
-</html>
-`;
+      <div>
+        <h1> todenow </h1>
+        <form action="/todos" method="POST">
+          <input name="text" type="text" autofocus="autofocus" placeholder="praise cage"/>
+        </form>
+      </div>
+      <ul id="js-todos"></ul>
+    </div>    
+  <div id=app>${body}</div>
+  <script type="module" src=/_static/browser.js></script>
+  </body>
+  </html>`;
 }

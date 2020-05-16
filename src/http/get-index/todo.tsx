@@ -30,7 +30,8 @@ export function Todo(todos: Props){
     let current = todos.filter(t => !t.completed)
     list && current.length
     //@ts-ignore
-    ? list.innerHTML = current.map(t => renderTodo(t)).join(''): ''
+    ? list.innerHTML = current.map(t => renderTodo(t)).join('')
+    : ''
   }
   
   function renderTodo (props: Props) {

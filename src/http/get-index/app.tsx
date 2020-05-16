@@ -2,10 +2,17 @@ import React, { Component, PropTypes } from "https://unpkg.com/es-react";
 import { Todo } from "./todo.tsx"
 
 // type definition for react elements
+//https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      p: string;
+      pre: any;
+      div: any;
+      li: any;
+      form: any;
+      input: any;
+      button: any;
+      todos: any;
     }
   }
 }
@@ -16,7 +23,15 @@ type Props = {
 
 //function component
 export function App(props: Props) {
-    console.log(props) 
-    //@ts-ignore
-     return <Todo data = { props.data.todos } /> ;
+  let todos = props.data
+
+  // let stringee = JSON.stringify(todos)
+
+  let body = <Todo todos = { props.data }> </Todo>
+
+
+  
+  return body
+  //@ts-ignore
+  //return <Todo data = { props.data.todos } /> ;
 }

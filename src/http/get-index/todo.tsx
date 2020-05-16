@@ -2,7 +2,7 @@ type Props = {
   todos: object[];
 };
 
-export function Todo(todos: Props){
+export function Todo(){
   //kick it off!
   init()
 
@@ -23,7 +23,6 @@ export function Todo(todos: Props){
   // Update the DOM with data
   //https://stackoverflow.com/a/59046041/5755373
   function update (todos: Props) {
-    console.log('update todos')
     //@ts-ignore
     let list = document.getElementById('js-todos')
     //@ts-ignore
@@ -36,9 +35,9 @@ export function Todo(todos: Props){
   
   function renderTodo (props: Props) {
     //@ts-ignore
-    let text = props.text || ''
+    let text = props.text 
     //@ts-ignore
-    let id = props.key || ''
+    let id = props.key
     //@ts-ignore
     let created = props.created
 

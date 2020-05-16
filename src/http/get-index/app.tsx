@@ -23,8 +23,5 @@ type Props = {
 
 //function component
 export function App(props: Props) {
-
-  let body = <Todo todos = { props.data }> </Todo>
-  
-  return body
+  return <Todo todos = { props.data } />
 }

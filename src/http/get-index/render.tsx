@@ -5,7 +5,14 @@ import { App } from './app.tsx';
 export async function render() {
 //https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402
   
-  const raw = await fetch("https://invent-jf9-staging.begin.app/todos")
+  const env = Deno.env.toObject()
+  let stage
+  if (env.NODE_ENV === 'staging') stage = 'https://invent-jf9-staging.begin.app/'
+  if (env.NODE_ENV === 'production') stage = 'https://invent-jf9.begin.app/'
+  if (env.NODE_ENV === 'testing') stage = 'http://localhost:3333'
+  let url = `${stage}/todos`
+  console.log(url)
+  const raw = await fetch(url)
   const props = await raw.json()
   let body = ReactDOMServer.renderToString(<App data = {props} />);
   

@@ -1,8 +1,15 @@
 import { render } from './render.tsx'
 
+const URI = {
+  local: 'http://localhost:3333',
+  staging: 'https://invent-jf9-staging.begin.app/',
+  production: 'https://invent-jf9.begin.app/'
+
+}
+
 export async function handler() {
 
-  const raw = await fetch('http://localhost:3333/todos')
+  const raw = await fetch('/todos')
   const props = await raw.json()
   const body = await render(props)
   return {

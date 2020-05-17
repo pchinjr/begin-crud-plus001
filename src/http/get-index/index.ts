@@ -8,9 +8,9 @@ const URI = {
 
 export async function handler() {
 
-  const raw = await fetch("https://invent-jf9-staging.begin.app/todos")
-  const props = await raw.json()
-  const body = await render(props)
+  // const raw = await fetch("https://invent-jf9-staging.begin.app/todos")
+  // const props = await raw.json()
+  const body = await render()
   return {
     headers: {
       'content-type': 'text/html; charset=utf8'

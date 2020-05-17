@@ -2,8 +2,11 @@ import ReactDOMServer from 'https://dev.jspm.io/react-dom/server';
 import { React } from "https://unpkg.com/es-react";
 import { App } from './app.tsx';
 
-export async function render(props: object[]) {
+export async function render() {
 //https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402
+  
+  const raw = await fetch("https://invent-jf9-staging.begin.app/todos")
+  const props = await raw.json()
   let body = ReactDOMServer.renderToString(<App data = {props} />);
   
   return `<!DOCTYPE html>

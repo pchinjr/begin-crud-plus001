@@ -1,10 +1,18 @@
-import React, { Component } from "https://unpkg.com/es-react";
+import React, { Component, PropTypes } from "https://unpkg.com/es-react";
+import { Todo } from "./todo.tsx"
 
 // type definition for react elements
+//https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       pre: any;
+      div: any;
+      li: any;
+      form: any;
+      input: any;
+      button: any;
+      todos: any;
     }
   }
 }
@@ -13,18 +21,7 @@ type Props = {
   data: object[];
 };
 
-
-//export class App extends Component<Props, {}> {
 //function component
 export function App(props: Props) {
-     //@ts-ignore
-     return <pre> { JSON.stringify(props.data) } </pre>;
+  return <Todo todos = { props.data } />
 }
-  // tok() {
-  //   fetch('https://shiny-1j9-staging.begin.app/api')
-  //   .then(response => response.json())
-  //   .then(response => console.log(response.data))
-  //   .catch(error => {
-  //     console.error('There has been a problem with your fetch operation:', error);
-  //   });
-  // }

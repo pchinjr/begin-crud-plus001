@@ -8,7 +8,6 @@ export function Todo(){
 
   // GET all todos
   async function init () {
-
     await fetch('/todos', {
       credentials: 'same-origin',
       headers: {

@@ -13,6 +13,7 @@ export async function render() {
   let url = `${stage}/todos`
   const raw = await fetch(url)
   const props = await raw.json()
+  console.log(props)
   let body = ReactDOMServer.renderToString(<App data = {props} />);
   
   return `<!DOCTYPE html>

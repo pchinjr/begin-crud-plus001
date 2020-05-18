@@ -8,7 +8,7 @@ export function Todo(){
 
   // GET all todos
   async function init () {
-    await fetch('/todos', {
+    await fetch('https://invent-jf9-staging.begin.app/todos', {
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json'

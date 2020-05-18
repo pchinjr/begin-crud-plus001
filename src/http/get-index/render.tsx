@@ -11,7 +11,7 @@ export async function render() {
   // if (env.NODE_ENV === 'production') stage = 'https://invent-jf9.begin.app/'
   // if (env.NODE_ENV === 'testing') stage = 'http://localhost:3333'
   // let url = `${stage}/todos`
-  const raw = await fetch(`https://invent-jf9-staging.begin.app/`)
+  const raw = await fetch(`https://invent-jf9-staging.begin.app/todos`)
   const props = await raw.json()
   console.log(props)
   let body = ReactDOMServer.renderToString(<App data = {props} />);

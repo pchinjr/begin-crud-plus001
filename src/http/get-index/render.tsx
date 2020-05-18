@@ -27,7 +27,7 @@ export async function render() {
   <body>
     <div>
       <div>
-        <h1> Todeno </h1>
+        <h1> todeno </h1>
         <form action="/todos" method="POST">
           <input name="text" type="text" autofocus="autofocus" placeholder="praise cage"/>
         </form>

@@ -10,7 +10,7 @@ type Props = {
 export function App(todos: Props) {
   return (
     <div>
-    <h1>todeno</h1>
+    <h1>todeno 🦕</h1>
       <form action="/todos" method="POST">
         <input name="text" type="text" placeholder="praise cage"/>
       </form>

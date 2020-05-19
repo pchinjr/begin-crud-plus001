@@ -1,5 +1,7 @@
 import React from "https://unpkg.com/es-react";
 
+// type definition for react elements
+// https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking
 declare global {
   namespace JSX {
     interface IntrinsicElements {

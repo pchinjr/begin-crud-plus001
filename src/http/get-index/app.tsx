@@ -1,18 +1,21 @@
-import React, { Component, PropTypes } from "https://unpkg.com/es-react";
+import React from "https://unpkg.com/es-react";
 import { Todo } from "./todo.tsx"
+import { List } from "./list.tsx"
 
 // type definition for react elements
-//https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking
+// https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking
 declare global {
   namespace JSX {
     interface IntrinsicElements {
+      p: any
       pre: any;
       div: any;
       li: any;
       form: any;
       input: any;
       button: any;
-      todos: any;
+      h1: any;
+      ul: any;
     }
   }
 }
@@ -22,7 +25,18 @@ type Props = {
 };
 
 //function component
-export function App(props: Props) {
-  
-  return <Todo todos = { props.data } />
+export function App(todos: Props) {
+  console.log('from app.tsx ', todos.data)
+
+
+
+  return (
+  <div>
+    <h1>todeno</h1>
+      <form action="/todos" method="POST">
+        <input name="text" type="text" placeholder="praise cage"/>
+      </form>
+    <List todos = { todos.data } />
+  </div>
+  )
 }

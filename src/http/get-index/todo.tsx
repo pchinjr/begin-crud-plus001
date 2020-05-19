@@ -2,13 +2,13 @@ type Props = {
   todos: object[];
 };
 
-export function Todo(){
+export function Todo( todos: Props ){
   //kick it off!
   init()
 
   // GET all todos
   function init () {
-      fetch('https://invent-jf9-staging.begin.app/todos', {
+      fetch('http://localhost:3333/todos', {
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json'

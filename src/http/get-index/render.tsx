@@ -26,7 +26,7 @@ export async function render() {
   </head>
   <style> * { margin-left: 5px } </style>
   <body>      
-    <div id=app>${body}</div>
+    <div id="app">${body}</div>
     <script type="module" src=/_static/browser.js></script>
   </body>
   </html>

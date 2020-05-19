@@ -2,6 +2,7 @@ import ReactDOMServer from 'https://dev.jspm.io/react-dom/server';
 import { React } from "https://unpkg.com/es-react";
 import { App } from './app.tsx';
 
+// server-side render call renderToString
 export async function render() {
 //https://medium.com/innovation-and-technology/deciphering-typescripts-react-errors-8704cc9ef402
   
@@ -12,10 +13,9 @@ export async function render() {
   if (env.NODE_ENV === 'testing') stage = 'http://localhost:3333'
   let url = `${stage}/todos`
   const raw = await fetch(url)
-  const props = await raw.json()
-  console.log(props)
+  const todos = await raw.json()
   //@ts-ignore
-  let body = ReactDOMServer.renderToString(<App data = {props} />);
+  let body = ReactDOMServer.renderToString(<App data = { todos } />);
   
   return `<!DOCTYPE html>
   <html lang="en">
@@ -25,21 +25,10 @@ export async function render() {
     <title>Todenow or Never</title>
   </head>
   <style> * { margin-left: 5px } </style>
-  <body>
-    <div>
-      <div>
-        <h1> todeno </h1>
-        <form action="/todos" method="POST">
-          <input name="text" type="text" autofocus="autofocus" placeholder="praise cage"/>
-        </form>
-      </div>
-      <ul id="js-todos"></ul>
-      <div id=app>${body}</div>
-    </div>
-  
-
-<script type="module" src=/_static/browser.js></script>
-</body>
-</html>
-`;
+  <body>      
+    <div id=app>${body}</div>
+    <script type="module" src=/_static/browser.js></script>
+  </body>
+  </html>
+  `;
 }
